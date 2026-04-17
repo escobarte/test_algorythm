@@ -5,3 +5,7 @@
 ### Next.js will be installed.
 
 ## Steps detailed of process in Instructions.md
+
+To Do:
+1. NodeJS installed + First Prompt
+2. 
