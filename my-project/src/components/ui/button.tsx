@@ -4,34 +4,65 @@ import { Slot } from "radix-ui"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * Button — Claude / Anthropic design system.
+ *
+ * Variants mirror DESIGN.md section 4:
+ *   default   → Terracotta Brand (primary CTA)
+ *   secondary → Warm Sand (secondary workhorse)
+ *   outline   → White Surface (elevated, on light canvas)
+ *   dark      → Dark Charcoal (inverted emphasis)
+ *   ghost     → Transparent (minimal, contextual)
+ *   destructive → Error state
+ *   link      → Text-only
+ */
 const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  [
+    "inline-flex items-center justify-center gap-2",
+    "font-sans font-medium whitespace-nowrap",
+    "cursor-pointer select-none",
+    "transition-all duration-200",
+    "disabled:pointer-events-none disabled:opacity-50",
+    "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+    // Focus — Focus Blue ring (the only cool color in Claude palette)
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-blue focus-visible:ring-offset-2",
+  ].join(" "),
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground [a]:hover:bg-primary/80",
-        outline:
-          "border-border bg-background hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50",
+        // Terracotta Brand — primary CTA
+        default:
+          "bg-terracotta text-ivory rounded-xl text-[15px] shadow-ring-brand hover:brightness-95 active:brightness-90",
+
+        // Warm Sand — secondary workhorse
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80 aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
+          "bg-warm-sand text-charcoal-warm rounded-lg text-[15px] shadow-ring-warm hover:bg-[#e0ddd2] active:bg-[#d8d5cb]",
+
+        // White Surface — for light backgrounds with border containment
+        outline:
+          "bg-white text-near-black border border-cream rounded-xl text-[15px] hover:bg-warm-sand active:bg-[#e0ddd2]",
+
+        // Dark Charcoal — inverted (dark on light)
+        dark:
+          "bg-dark-surface text-ivory rounded-lg text-[15px] shadow-ring-dark hover:bg-dark-warm active:bg-near-black",
+
+        // Ghost — transparent, low-emphasis
         ghost:
-          "hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:hover:bg-muted/50",
+          "bg-transparent text-charcoal-warm rounded-lg text-[15px] hover:bg-warm-sand active:bg-[#e0ddd2]",
+
+        // Destructive — error state
         destructive:
-          "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
-        link: "text-primary underline-offset-4 hover:underline",
+          "bg-error/10 text-error border border-error/20 rounded-lg text-[15px] hover:bg-error/20",
+
+        // Link — inline text action
+        link: "text-terracotta underline-offset-4 hover:underline p-0 h-auto text-[15px]",
       },
       size: {
-        default:
-          "h-8 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
-        xs: "h-6 gap-1 rounded-[min(var(--radius-md),10px)] px-2 text-xs in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3",
-        sm: "h-7 gap-1 rounded-[min(var(--radius-md),12px)] px-2.5 text-[0.8rem] in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5",
-        lg: "h-9 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
-        icon: "size-8",
-        "icon-xs":
-          "size-6 rounded-[min(var(--radius-md),10px)] in-data-[slot=button-group]:rounded-lg [&_svg:not([class*='size-'])]:size-3",
-        "icon-sm":
-          "size-7 rounded-[min(var(--radius-md),12px)] in-data-[slot=button-group]:rounded-lg",
-        "icon-lg": "size-9",
+        default: "h-10 px-5 py-2.5",
+        sm: "h-8 px-4 py-1.5 text-[14px]",
+        lg: "h-12 px-6 py-3 text-[16px]",
+        icon: "size-10 p-0",
+        "icon-sm": "size-8 p-0",
       },
     },
     defaultVariants: {
@@ -43,8 +74,8 @@ const buttonVariants = cva(
 
 function Button({
   className,
-  variant = "default",
-  size = "default",
+  variant,
+  size,
   asChild = false,
   ...props
 }: React.ComponentProps<"button"> &
@@ -56,8 +87,6 @@ function Button({
   return (
     <Comp
       data-slot="button"
-      data-variant={variant}
-      data-size={size}
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
     />

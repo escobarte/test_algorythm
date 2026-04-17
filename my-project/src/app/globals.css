@@ -3,94 +3,103 @@
 @tailwind utilities;
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+  .text-balance { text-wrap: balance; }
 }
 
 @layer base {
   :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
-    --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
-    --accent: oklch(0.97 0 0);
-    --accent-foreground: oklch(0.205 0 0);
-    --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0 0);
-    --input: oklch(0.922 0 0);
-    --ring: oklch(0.708 0 0);
-    --radius: 0.625rem;
-    --sidebar: oklch(0.985 0 0);
-    --sidebar-foreground: oklch(0.145 0 0);
-    --sidebar-primary: oklch(0.205 0 0);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.97 0 0);
-    --sidebar-accent-foreground: oklch(0.205 0 0);
-    --sidebar-border: oklch(0.922 0 0);
-    --sidebar-ring: oklch(0.708 0 0);
+    /* --- Claude / Anthropic Design Tokens --- */
+
+    /* Surfaces */
+    --background: #f5f4ed;   /* Parchment */
+    --foreground: #141413;   /* Near Black */
+    --card: #faf9f5;         /* Ivory */
+    --card-foreground: #141413;
+    --popover: #faf9f5;
+    --popover-foreground: #141413;
+
+    /* Interactive */
+    --primary: #c96442;      /* Terracotta Brand */
+    --primary-foreground: #faf9f5;
+    --secondary: #e8e6dc;    /* Warm Sand */
+    --secondary-foreground: #4d4c48;
+    --muted: #f0eee6;
+    --muted-foreground: #5e5d59;  /* Olive Gray */
+    --accent: #e8e6dc;
+    --accent-foreground: #4d4c48;
+
+    /* States */
+    --destructive: #b53333;  /* Error Crimson */
+
+    /* Structure */
+    --border: #f0eee6;       /* Border Cream */
+    --input: #e8e6dc;        /* Border Warm */
+    --ring: #3898ec;         /* Focus Blue (only cool color — accessibility) */
+    --radius: 0.5rem;        /* 8px */
+
+    /* Sidebar */
+    --sidebar: #faf9f5;
+    --sidebar-foreground: #141413;
+    --sidebar-primary: #c96442;
+    --sidebar-primary-foreground: #faf9f5;
+    --sidebar-accent: #f0eee6;
+    --sidebar-accent-foreground: #4d4c48;
+    --sidebar-border: #f0eee6;
+    --sidebar-ring: #3898ec;
   }
 
   .dark {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.205 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
-    --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
-    --sidebar: oklch(0.205 0 0);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.269 0 0);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.556 0 0);
+    --background: #141413;   /* Deep Dark */
+    --foreground: #faf9f5;   /* Ivory */
+    --card: #30302e;         /* Dark Surface */
+    --card-foreground: #faf9f5;
+    --popover: #30302e;
+    --popover-foreground: #faf9f5;
+
+    --primary: #c96442;      /* Terracotta stays */
+    --primary-foreground: #faf9f5;
+    --secondary: #30302e;
+    --secondary-foreground: #faf9f5;
+    --muted: #30302e;
+    --muted-foreground: #87867f;  /* Stone Gray */
+    --accent: #3d3d3a;
+    --accent-foreground: #faf9f5;
+
+    --destructive: #b53333;
+
+    --border: #30302e;       /* Border Dark */
+    --input: #30302e;
+    --ring: #3898ec;
+
+    --sidebar: #30302e;
+    --sidebar-foreground: #faf9f5;
+    --sidebar-primary: #c96442;
+    --sidebar-primary-foreground: #faf9f5;
+    --sidebar-accent: #3d3d3a;
+    --sidebar-accent-foreground: #faf9f5;
+    --sidebar-border: #30302e;
+    --sidebar-ring: #3898ec;
   }
 
-  * {
-    border-color: var(--border);
-  }
+  * { border-color: var(--border); }
 
-  body {
-    @apply bg-background text-foreground;
-  }
+  body { @apply bg-background text-foreground; }
 }
 
-/* Accordion & Collapsible animations (shadcn/ui) */
+/* Accordion & Collapsible keyframes (shadcn/ui) */
 @keyframes accordion-down {
   from { height: 0; }
-  to { height: var(--radix-accordion-content-height); }
+  to   { height: var(--radix-accordion-content-height); }
 }
 @keyframes accordion-up {
   from { height: var(--radix-accordion-content-height); }
-  to { height: 0; }
+  to   { height: 0; }
 }
 @keyframes collapsible-down {
   from { height: 0; }
-  to { height: var(--radix-collapsible-content-height); }
+  to   { height: var(--radix-collapsible-content-height); }
 }
 @keyframes collapsible-up {
   from { height: var(--radix-collapsible-content-height); }
-  to { height: 0; }
+  to   { height: 0; }
 }

@@ -1,11 +1,5 @@
 # dev_algorythm Branch
+## Steps detailed of process in Notion
 
-## Branch will be used for test development of site
-
-### Next.js will be installed.
-
-## Steps detailed of process in Instructions.md
-
-To Do:
-1. NodeJS installed + First Prompt
-2. 
+### Please Update file Instructions.md >> from >> NOtion.so with latest Updates.
+#### Actual file is outdated, and not coresponded to the fact. 
