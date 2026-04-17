@@ -1,10 +1,3 @@
-# Next.JS Branch
-
-## Branch will be used for futere development of site
-
-### Next.js will be already installed.
-
-```script
 #!/bin/bash
 
 # ─────────────────────────────────────────
@@ -72,5 +65,3 @@ echo "✅ Базовая инфраструктура готова!"
 echo ""
 echo "🎉 Готово! Проект настроен по Фазе 1. Запуск:"
 echo "   cd my-project && npm run dev"
-
-```
