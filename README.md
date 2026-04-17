@@ -4,4 +4,4 @@
 
 ### Next.js will be installed.
 
-## Steps detailed of process in 
+## Steps detailed of process in Instructions.md

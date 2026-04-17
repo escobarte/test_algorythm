@@ -46,7 +46,7 @@ npm install framer-motion react-hook-form
 
 echo "⏳ Инициализирую shadcn/ui (с дефолтными настройками)..."
 # Флаг -d инициализирует shadcn с настройками по умолчанию (New York стиль, Zinc цвет)
-npx shadcn-ui@latest init -d
+npx shadcn@latest init -d
 
 # ─────────────────────────────────────────
 # Шаг 5 — Создание «Конституции» для Клода
