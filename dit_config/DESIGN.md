@@ -11,7 +11,7 @@ What makes Claude's design truly distinctive is its warm neutral palette. Every 
 **Key Characteristics:**
 - Warm parchment canvas (`#f5f4ed`) evoking premium paper, not screens
 - Custom Anthropic type family: Serif for headlines, Sans for UI, Mono for code
-- Terracotta brand accent (`#c96442`) — warm, earthy, deliberately un-tech
+- Terracotta (`#e35336`) — warm, earthy, deliberately un-tech
 - Exclusively warm-toned neutrals — every gray has a yellow-brown undertone
 - Organic, editorial illustrations replacing typical tech iconography
 - Ring-based shadow system (`0px 0px 0px 1px`) creating border-like depth without visible borders
@@ -21,7 +21,7 @@ What makes Claude's design truly distinctive is its warm neutral palette. Every 
 
 ### Primary
 - **Anthropic Near Black** (`#141413`): The primary text color and dark-theme surface — not pure black but a warm, almost olive-tinted dark that's gentler on the eyes. The warmest "black" in any major tech brand.
-- **Terracotta Brand** (`#c96442`): The core brand color — a burnt orange-brown used for primary CTA buttons, brand moments, and the signature accent. Deliberately earthy and un-tech.
+- **Terracotta Brand** (`#e35336`): The core brand color — a burnt orange-brown used for primary CTA buttons, brand moments, and the signature accent. Deliberately earthy and un-tech.
 - **Coral Accent** (`#d97757`): A lighter, warmer variant of the brand color used for text accents, links on dark surfaces, and secondary emphasis.
 
 ### Secondary & Accent
@@ -120,7 +120,7 @@ What makes Claude's design truly distinctive is its warm neutral palette. Every 
 - The inverted variant for dark-on-light emphasis
 
 **Brand Terracotta**
-- Background: Terracotta Brand (`#c96442`)
+- Background: Terracotta (`#e35336`)
 - Text: Ivory (`#faf9f5`)
 - Radius: 8–12px
 - Shadow: ring-based (`#c96442 0px 0px 0px 0px, #c96442 0px 0px 0px 1px`)
@@ -232,7 +232,7 @@ What makes Claude's design truly distinctive is its warm neutral palette. Every 
 ### Do
 - Use Parchment (`#f5f4ed`) as the primary light background — the warm cream tone IS the Claude personality
 - Use Anthropic Serif at weight 500 for all headlines — the single-weight consistency is intentional
-- Use Terracotta Brand (`#c96442`) only for primary CTAs and the highest-signal brand moments
+- Use Terracotta (`#e35336`) only for primary CTAs and the highest-signal brand moments
 - Keep all neutrals warm-toned — every gray should have a yellow-brown undertone
 - Use ring shadows (`0px 0px 0px 1px`) for interactive element states instead of drop shadows
 - Maintain the editorial serif/sans hierarchy — serif for content headlines, sans for UI
@@ -283,6 +283,8 @@ What makes Claude's design truly distinctive is its warm neutral palette. Every 
 - Video embeds maintain 16:9 aspect ratio with rounded corners
 - No art direction changes between breakpoints
 
+
+
 ## 9. Agent Prompt Guide
 
 ### Quick Color Reference
@@ -310,3 +312,51 @@ What makes Claude's design truly distinctive is its warm neutral palette. Every 
 5. For shadows, use "ring shadow (0px 0px 0px 1px)" or "whisper shadow" — never generic "drop shadow"
 6. Specify the warm background — "on Parchment (#f5f4ed)" or "on Near Black (#141413)"
 7. Keep illustrations organic and conceptual — describe "hand-drawn-feeling" style
+
+## 10. Trucking/Logistics Core Layout (Claude Adapted)
+
+**Mobile-first Layout**
+- Most users browse on phones. All sections must be fully responsive, maintaining the generous serif typography scaling (e.g., 64px hero text scales down gracefully to 36px on mobile).
+
+**Hero Section**
+- **Size**: Full viewport height (`100vh`).
+- **Background**: Full-bleed background image (e.g., truck), subdued by a warm, dark gradient overlay to ensure text legibility: `linear-gradient(rgba(20, 20, 19, 0.7), rgba(20, 20, 19, 0.85))` — using the Anthropic Near Black (`#141413`).
+- **Text**: Pure White (`#ffffff`) or Ivory (`#faf9f5`) Anthropic Serif.
+
+**Section Alternation**
+- Alternate backgrounds to create an editorial reading rhythm. Instead of white/light gray, alternate between **Parchment (`#f5f4ed`)** and **Near Black (`#141413`)**. Ivory (`#faf9f5`) is used for elevated cards on light backgrounds.
+
+**Navigation**
+- **Behavior**: Sticky top nav.
+- **Color**: Transitions background opacity on scroll, settling into solid Near Black (`#141413`) or Parchment (`#f5f4ed`) depending on the theme. 
+- **Logo**: Ivory (`#faf9f5`) on dark, Near Black (`#141413`) on light.
+- **CTA Button**: Always Terracotta Brand (`#e35336`) aligned to the right.
+
+**Footer**
+- **Background**: Anthropic Near Black (`#141413`).
+- **Text**: Warm Silver (`#b0aea5`) or Ivory (`#faf9f5`).
+
+**Buttons**
+- Primary CTAs are always **Terracotta Brand (`#e35336`)** with Ivory text.
+- Radius: Comfortably rounded (8px–12px).
+- Typography: Anthropic Sans, Medium (500).
+
+
+## 11. Motion & Micro-interactions
+
+Motion in the Claude ecosystem should feel unhurried and deliberate, never frantic.
+
+- **Hero CTA Button**: A subtle, elegant pulse animation to draw attention. Instead of a harsh scale effect, use a softly expanding ring shadow in Terracotta (`rgba(227, 83, 54, 0.4) 0px 0px 0px 4px`).
+- **Benefit Cards**: Fade-in + gentle slide-up on scroll (using `IntersectionObserver`). The easing should be smooth (e.g., `cubic-bezier(0.2, 0.8, 0.2, 1)`).
+- **Navbar**: Smooth transition on background opacity upon scrolling (`transition: background-color 0.3s ease`).
+- **Form Inputs**: Smooth border-color transition to Focus Blue (`#3898ec`) on focus (`transition: border-color 0.2s`).
+- **Staggered Reveal**: Benefit icons and list items use staggered `animation-delay` increments for a graceful, sequential entrance.
+
+
+## 12. Backgrounds & Depth
+
+Avoid flat, solid colors entirely. Depth is achieved through the natural warmth of the palette, ring shadows, and subtle textures.
+
+- **Hero Depth**: The image is pushed to the background via the Near Black gradient overlay, ensuring the serif typography and Terracotta button remain the focal points.
+- **Benefits Section**: Dark Surface (`#30302e`) background with a subtle, warm organic noise texture (avoiding harsh geometric stripes to maintain the human, editorial feel).
+- **Why Drive Section**: Deep Near Black (`#141413`) with a faint, abstract, hand-drawn-feeling pattern (like subtle tire tracks drawn in charcoal). It should feel like premium watermarked paper, even in dark mode.
