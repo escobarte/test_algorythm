@@ -1,15 +1,21 @@
+import { HeroSection } from "@/components/sections/HeroSection"
+import { StatsBar } from "@/components/sections/StatsBar"
+import { ServicesGrid } from "@/components/sections/ServicesGrid"
+import { TrustCompliance } from "@/components/sections/TrustCompliance"
+import { Testimonials } from "@/components/sections/Testimonials"
+import { FaqSection } from "@/components/sections/FaqSection"
+import { FinalCta } from "@/components/sections/FinalCta"
+
 export default function Home() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-24">
-      <div className="flex flex-col gap-4">
-        <p className="text-sm font-medium text-muted-foreground">Welcome</p>
-        <h1 className="text-4xl font-bold tracking-tight text-foreground">
-          Algorythm
-        </h1>
-        <p className="max-w-xl text-lg text-muted-foreground">
-          Your project is ready. Start building.
-        </p>
-      </div>
-    </section>
+    <>
+      <HeroSection />
+      <StatsBar />
+      <ServicesGrid />
+      <TrustCompliance />
+      <Testimonials />
+      <FaqSection />
+      <FinalCta />
+    </>
   )
 }
