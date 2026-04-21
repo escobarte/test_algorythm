@@ -17,8 +17,9 @@ const geistMono = localFont({
 })
 
 export const metadata: Metadata = {
-  title: "Algorythm",
-  description: "Algorythm — your project",
+  title: "Transnatur Inc — CDL-A Truck Driver Jobs",
+  description:
+    "Join Transnatur Inc — competitive pay, modern fleet, and full benefits for CDL-A drivers. Lockport, IL. Apply today.",
 }
 
 export default function RootLayout({
